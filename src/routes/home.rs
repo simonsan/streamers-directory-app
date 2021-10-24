@@ -7,15 +7,21 @@ impl Component for Home {
     type Message = ();
     type Properties = ();
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    fn create(_: Self::Properties,
+              _: ComponentLink<Self>)
+              -> Self {
         Home {}
     }
 
-    fn change(&mut self, _: Self::Properties) -> ShouldRender {
+    fn change(&mut self,
+              _: Self::Properties)
+              -> ShouldRender {
         false
     }
 
-    fn update(&mut self, _: Self::Message) -> ShouldRender {
+    fn update(&mut self,
+              _: Self::Message)
+              -> ShouldRender {
         true
     }
 

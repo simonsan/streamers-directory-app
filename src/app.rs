@@ -1,9 +1,18 @@
 use yew::prelude::*;
-use yew_router::switch::Permissive;
-use yew_router::{prelude::*, route::Route};
+use yew_router::{
+    prelude::*,
+    route::Route,
+    switch::Permissive,
+};
 
-use crate::components::nav::Nav;
-use crate::routes::{about::About, home::Home, AppRoute};
+use crate::{
+    components::nav::Nav,
+    routes::{
+        about::About,
+        home::Home,
+        AppRoute,
+    },
+};
 
 /// Root component
 pub struct App;
@@ -12,15 +21,21 @@ impl Component for App {
     type Message = ();
     type Properties = ();
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    fn create(_: Self::Properties,
+              _: ComponentLink<Self>)
+              -> Self {
         App {}
     }
 
-    fn change(&mut self, _: Self::Properties) -> ShouldRender {
+    fn change(&mut self,
+              _: Self::Properties)
+              -> ShouldRender {
         false
     }
 
-    fn update(&mut self, _: Self::Message) -> ShouldRender {
+    fn update(&mut self,
+              _: Self::Message)
+              -> ShouldRender {
         true
     }
 

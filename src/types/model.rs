@@ -1,9 +1,16 @@
+// use chrono::prelude::*;
+use serde::{
+    Deserialize,
+    Serialize,
+};
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
 enum EloRange {
     Greater2k,
     Greater1k4,
     Greater800,
 }
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 enum Category {
     CastingRanked(EloRange),
     CastingTournaments,
@@ -12,7 +19,7 @@ enum Category {
     PovContent(EloRange),
     LearningResources,
 }
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 enum LanguageShortCode {
     En,
     De,
@@ -23,7 +30,7 @@ enum LanguageShortCode {
     Rus,
     Other(String),
 }
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 enum GameShortCode {
     Aoe1,
     Aoe2,
@@ -35,7 +42,7 @@ enum GameShortCode {
 }
 
 type StreamerUrl = String;
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 enum Platform {
     Twitch(StreamerUrl),
     Youtube(StreamerUrl),
@@ -43,18 +50,17 @@ enum Platform {
     Douyu(StreamerUrl),
     Discord(StreamerUrl),
 }
-
+#[derive(Serialize, Deserialize, Clone, Debug)]
 struct Elo(u64);
 
-struct ContentCreator {
+#[derive(Serialize, Deserialize, Clone, Debug)]
+struct ContentCreatorInfo {
     id: usize,
     name: String,
-    platforms: Vec<(
-        Platform,
-        Vec<Category>,
-        Vec<LanguageShortCode>,
-        Vec<GameShortCode>,
-    )>,
+    platforms: Vec<(Platform,
+                    Vec<Category>,
+                    Vec<LanguageShortCode>,
+                    Vec<GameShortCode>)>,
     elo: Option<Elo>,
     aoc_ref_name: Option<String>,
 }

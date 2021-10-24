@@ -7,15 +7,21 @@ impl Component for About {
     type Message = ();
     type Properties = ();
 
-    fn create(_: Self::Properties, _: ComponentLink<Self>) -> Self {
+    fn create(_: Self::Properties,
+              _: ComponentLink<Self>)
+              -> Self {
         About {}
     }
 
-    fn change(&mut self, _: Self::Properties) -> ShouldRender {
+    fn change(&mut self,
+              _: Self::Properties)
+              -> ShouldRender {
         false
     }
 
-    fn update(&mut self, _: Self::Message) -> ShouldRender {
+    fn update(&mut self,
+              _: Self::Message)
+              -> ShouldRender {
         true
     }
 
@@ -49,15 +55,17 @@ mod tests {
 
     wasm_bindgen_test_configure!(run_in_browser);
 
-    use super::About;
     use yew::App;
+
+    use super::About;
 
     #[wasm_bindgen_test]
     fn about_page_has_an_app_link() {
         let app: App<About> = yew::App::new();
         app.mount(yew::utils::document().get_element_by_id("output").unwrap());
 
-        let app_links = yew::utils::document().get_elements_by_class_name("app-link");
+        let app_links =
+            yew::utils::document().get_elements_by_class_name("app-link");
 
         assert_eq!(app_links.length(), 1);
 

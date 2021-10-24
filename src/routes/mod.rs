@@ -1,5 +1,7 @@
-use yew_router::prelude::*;
-use yew_router::switch::Permissive;
+use yew_router::{
+    prelude::*,
+    switch::Permissive,
+};
 
 pub mod about;
 pub mod home;
