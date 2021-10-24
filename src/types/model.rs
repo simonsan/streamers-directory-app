@@ -61,6 +61,8 @@ struct ContentCreatorInfo {
                     Vec<Category>,
                     Vec<LanguageShortCode>,
                     Vec<GameShortCode>)>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     elo: Option<Elo>,
+    #[serde(skip_serializing_if = "Option::is_none")]
     aoc_ref_name: Option<String>,
 }
