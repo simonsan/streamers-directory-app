@@ -1,0 +1,29 @@
+[package]
+name = "aoe-streamers-directory"
+authors = ["Simonsan <simonsan@systemli.org>"]
+categories = ["wasm"]
+description = "A categorized directory for people in search for special content"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+readme = "./README.md"
+repository = "https://github.com/simonsan/streamers-directory"
+version = "0.1.0"
+
+[dependencies]
+log = "0.4.14"
+yew = "0.18.0"
+yew-router = { version = "0.15.0", features = ["web_sys"] }
+wasm-bindgen = "0.2.78"
+wasm-logger = "0.2.0"
+wee_alloc = "0.4.5"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.28"
+
+[dev-dependencies.web-sys]
+version = "0.3.55"
+features = [
+  "Document",
+  "Element",
+  "HtmlCollection",
+]
