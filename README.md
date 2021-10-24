@@ -4,6 +4,8 @@ A categorized directory for people in search for special content
 
 ## How to install
 
+Check the install instructions for [yew](https://github.com/yewstack/yew-trunk-minimal-template#installation). And afterwards run:
+
 ```sh
 yarn install
 ```
