@@ -10,20 +10,20 @@ use yew::{
 };
 
 use super::{
-    article_preview::ArticlePreview,
     list_pagination::ListPagination,
+    streamer_preview::StreamerPreview,
 };
 use crate::{
     error::Error,
-    services::Articles,
-    types::ArticleListInfo,
+    services::Streamers,
+    types::StreamerListInfo,
 };
 
 /// List of articles component
-pub struct ArticleList {
-    articles: Articles,
-    article_list: Option<ArticleListInfo>,
-    response: Callback<Result<ArticleListInfo, Error>>,
+pub struct StreamerList {
+    streamers: Streamers,
+    article_list: Option<StreamerListInfo>,
+    response: Callback<Result<StreamerListInfo, Error>>,
     task: Option<FetchTask>,
     current_page: u32,
     props: Props,
@@ -32,22 +32,21 @@ pub struct ArticleList {
 
 #[derive(Properties, Clone)]
 pub struct Props {
-    pub filter: ArticleListFilter,
+    pub filter: StreamerListFilter,
 }
 
 pub enum Msg {
-    Response(Result<ArticleListInfo, Error>),
+    Response(Result<StreamerListInfo, Error>),
     PaginationChanged(u32),
 }
 
 /// Filters for article list
 #[derive(Clone, Debug)]
-pub enum ArticleListFilter {
+pub enum StreamerListFilter {
     All,
-    ByAuthor(String),
-    ByTag(String),
-    FavoritedBy(String),
-    Feed,
+    ByElo(String),
+    ByCategory(String),
+    ByLanguage(String),
 }
 
 impl Component for ArticleList {
@@ -57,13 +56,13 @@ impl Component for ArticleList {
     fn create(props: Self::Properties,
               link: ComponentLink<Self>)
               -> Self {
-        ArticleList { articles: Articles::new(),
-                      article_list: None,
-                      response: link.callback(Msg::Response),
-                      task: None,
-                      current_page: 0,
-                      props,
-                      link }
+        StreamerList { streamers: Streamers::new(),
+                       streamer_list: None,
+                       response: link.callback(Msg::Response),
+                       task: None,
+                       current_page: 0,
+                       props,
+                       link }
     }
 
     fn rendered(&mut self,
@@ -78,7 +77,7 @@ impl Component for ArticleList {
               -> ShouldRender {
         match msg {
             Msg::Response(Ok(article_list)) => {
-                self.article_list = Some(article_list);
+                self.streamer_list = Some(streamer_list);
                 self.task = None;
             },
             Msg::Response(Err(_)) => {
@@ -102,16 +101,16 @@ impl Component for ArticleList {
     }
 
     fn view(&self) -> Html {
-        if let Some(article_list) = &self.article_list {
-            if !article_list.articles.is_empty() {
+        if let Some(streamer_list) = &self.streamer_list {
+            if !streamer_list.streamers.is_empty() {
                 let callback = self.link.callback(Msg::PaginationChanged);
                 html! {
                     <>
-                        {for article_list.articles.iter().map(|article| {
-                            html! { <ArticlePreview article=article /> }
+                        {for streamer_list.streamers.iter().map(|streamer| {
+                            html! { <StreamerPreview streamer=streamer /> }
                         })}
                         <ListPagination
-                            articles_count=article_list.articles_count
+                            streamers_count=streamer_list.streamers_count
                             current_page=self.current_page
                             callback=callback />
                     </>
@@ -119,45 +118,45 @@ impl Component for ArticleList {
             }
             else {
                 html! {
-                    <div class="article-preview">{ "No articles are here... yet." }</div>
+                    <div class="streamer-preview">{ "No streamers are here... yet." }</div>
                 }
             }
         }
         else {
             html! {
-                <div class="article-preview">{ "Loading..." }</div>
+                <div class="streamer-preview">{ "Loading..." }</div>
             }
         }
     }
 }
 
-impl ArticleList {
+impl StreamerList {
     /// Request apis for filters
     fn request(&mut self) {
         match self.props.filter.clone() {
-            ArticleListFilter::All => {
-                self.task = Some(self.articles.all(self.current_page,
-                                                   self.response.clone()));
+            StreamerListFilter::All => {
+                self.task = Some(self.streamers.all(self.current_page,
+                                                    self.response.clone()));
             },
-            ArticleListFilter::ByAuthor(author) => {
-                self.task = Some(self.articles
-                                     .by_author(author,
-                                                self.current_page,
-                                                self.response.clone()));
+            StreamerListFilter::ByElo(elo) => {
+                self.task = Some(self.streamers.by_elo(elo,
+                                                       self.current_page,
+                                                       self.response.clone()));
             },
-            ArticleListFilter::ByTag(tag) => {
-                self.task = Some(self.articles.by_tag(tag,
-                                                      self.current_page,
-                                                      self.response.clone()));
+            StreamerListFilter::ByCategory(category) => {
+                self.task = Some(self.streamers
+                                     .by_category(category,
+                                                  self.current_page,
+                                                  self.response.clone()));
             },
-            ArticleListFilter::FavoritedBy(author) => {
-                self.task = Some(self.articles
-                                     .favorited_by(author,
-                                                   self.current_page,
-                                                   self.response.clone()));
+            StreamerListFilter::ByLanguage(language) => {
+                self.task = Some(self.streamers
+                                     .by_language(language,
+                                                  self.current_page,
+                                                  self.response.clone()));
             },
-            ArticleListFilter::Feed => {
-                self.task = Some(self.articles.feed(self.response.clone()));
+            StreamerListFilter::Feed => {
+                self.task = Some(self.streamers.feed(self.response.clone()));
             },
         }
     }

@@ -42,30 +42,14 @@ impl Component for Nav {
                             <hr class="navbar-divider" />
                                     <div class="navbar-item has-dropdown is-hoverable">
                                         <a class="navbar-link">
-                                            { "Games" }
+                                            { "Languages" }
                                         </a>
                                             <div class="navbar-dropdown">
                                                 <a class="navbar-item">
-                                                    { "AoE2" }
+                                                    { "En" }
                                                 </a>
                                                 <a class="navbar-item">
-                                                    { "AoE4" }
-                                                </a>
-                                            </div>
-                                    </div>
-                                    <div class="navbar-item has-dropdown is-hoverable">
-                                        <a class="navbar-link">
-                                            { "Category" }
-                                        </a>
-                                            <div class="navbar-dropdown">
-                                                <a class="navbar-item">
-                                                    { "Casting" }
-                                                </a>
-                                                <a class="navbar-item">
-                                                    { "POV" }
-                                                </a>
-                                                <a class="navbar-item">
-                                                    { "Community Games" }
+                                                    { "De" }
                                                 </a>
                                             </div>
                                     </div>
