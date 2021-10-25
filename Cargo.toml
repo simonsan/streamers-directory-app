@@ -23,6 +23,7 @@ serde = "1.0.130"
 serde_yaml = "0.8.21"
 anyhow = "1.0.44"
 thiserror = "1.0.30"
+yew-bulma = "0.0.2"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.28"
