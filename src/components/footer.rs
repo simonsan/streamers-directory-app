@@ -5,9 +5,7 @@ use yew::{
     Html,
     ShouldRender,
 };
-use yew_router::prelude::*;
 
-use crate::routes::AppRoute;
 
 pub struct Footer {}
 
@@ -37,15 +35,16 @@ impl Component for Footer {
 
     fn view(&self) -> Html {
         html! {
-            <footer>
-                <div class="container">
-                    <RouterAnchor<AppRoute> route=AppRoute::Home classes="logo-font">{ "conduit" }</RouterAnchor<AppRoute>>
+            <footer class="footer">
+                <div class="content has-text-centered">
+                <p>
                     <span class="attribution">
-                        { "© 2019. An interactive learning project from" }
-                        <a href="https://thinkster.io"> { "Thinkster" } </a>
-                        { ". Code licensed under MIT.aaa" }
+                        { "© 2021. A directory list of content creators made by " }
+                        <a href="https://github.com/simonsan/streamers-directory-app"> { "Simonsan" } </a>
+                        { ". Code licensed under AGPLv3" }
                     </span>
-                </div>
+                </p>
+            </div>
             </footer>
         }
     }

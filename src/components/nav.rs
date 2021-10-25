@@ -29,6 +29,9 @@ impl Component for Nav {
     }
 
     fn view(&self) -> Html {
+        // TODO: https://yew.rs/concepts/html/lists
+        // Create list of menu items from enums
+
         html! {
             <nav class="navbar" role="navigation" aria-label="main navigation">
 

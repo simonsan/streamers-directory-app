@@ -6,7 +6,10 @@ use yew_router::{
 };
 
 use crate::{
-    components::nav::Nav,
+    components::{
+        footer::Footer,
+        nav::Nav,
+    },
     routes::{
         about::About,
         home::Home,
@@ -56,6 +59,7 @@ impl Component for App {
                         AppRoute::PageNotFound(Permissive(Some(route.route)))
                     })
                 />
+                <Footer />
             </>
         }
     }
