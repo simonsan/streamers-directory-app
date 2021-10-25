@@ -20,6 +20,15 @@ jobs:
         with:
           version: 'latest'
 
+      - name: Cache Cargo and Yarn
+        uses: actions/cache@v2
+        with:
+          path: |
+            /target
+            .cache
+            .yarn
+          key: ${{ runner.os }}-${{ hashFiles('**/Cargo.lock') }}-${{ hashFiles('**/package-lock.json') }}
+
       - run: trunk build --release
 
       - name: Deploy
