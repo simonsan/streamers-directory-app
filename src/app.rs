@@ -7,7 +7,6 @@ use yew_router::{
 
 use crate::{
     components::{
-        filters::Filter,
         footer::Footer,
         nav::Nav,
     },
@@ -47,7 +46,6 @@ impl Component for App {
         html! {
             <>
                 <Nav />
-                <Filter />
                 <Router<AppRoute, ()>
                     render = Router::render(|switch: AppRoute | {
                         match switch {

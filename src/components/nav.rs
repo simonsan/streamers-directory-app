@@ -37,7 +37,14 @@ impl Component for Nav {
 
                 <div class="navbar-menu">
                             <div class="navbar-start">
-                            <RouterAnchor<AppRoute> route=AppRoute::Home classes="app-link navbar-item" >{ "Home" }</RouterAnchor<AppRoute>>
+                            <RouterAnchor<AppRoute> route=AppRoute::Home classes="app-link navbar-item" >
+                            <span class="icon-text">
+                                <span class="icon">
+                                    <i class="fas fa-home"></i>
+                                </span>
+                                <span>{ "Home" }</span>
+                            </span>
+                             </RouterAnchor<AppRoute>>
                             <RouterAnchor<AppRoute> route=AppRoute::About classes="app-link navbar-item">{ "About" }</RouterAnchor<AppRoute>>
                             <hr class="navbar-divider" />
                                     <div class="navbar-item has-dropdown is-hoverable">

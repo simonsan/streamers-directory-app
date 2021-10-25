@@ -26,7 +26,20 @@ impl Component for About {
     }
 
     fn view(&self) -> Html {
-        html! {}
+        html! {
+
+                    <section class="hero">
+          <div class="hero-body">
+            <p class="title">
+              { "AoE Streamers Directory" }
+            </p>
+            <p class="subtitle">
+              { " A directory of content creators in the Age of Empires universe" }
+            </p>
+          </div>
+        </section>
+
+                }
     }
 }
 
