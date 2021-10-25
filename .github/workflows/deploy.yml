@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-20.04
+    env:
+      TRUNK_BUILD_PUBLIC_URL: https://simonsan.github.io/streamers-directory-app/
     steps:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1

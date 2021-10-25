@@ -3,8 +3,6 @@ target = "index.html"
 release = false
 # The output dir for all final assets.
 dist = "dist"
-# The public URL from which assets are to be served.
-public_url = "https://simonsan.github.io/streamers-directory-app/"
 
 [watch]
 # Paths to watch. The `build.target`'s parent folder is watched by default.
