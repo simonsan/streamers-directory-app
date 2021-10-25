@@ -1,0 +1,27 @@
+[build]
+target = "index.html"
+release = false
+# The output dir for all final assets.
+dist = "dist"
+# The public URL from which assets are to be served.
+public_url = "/"
+
+[watch]
+# Paths to watch. The `build.target`'s parent folder is watched by default.
+watch = []
+# Paths to ignore.
+ignore = []
+
+[serve]
+# The port to serve on.
+port = 8080
+# Open a browser tab once the initial build is complete.
+open = false
+# Disable auto-reload of the web app.
+no_autoreload = false
+
+[clean]
+# The output dir for all final assets.
+dist = "dist"
+# Optionally perform a cargo clean.
+cargo = false

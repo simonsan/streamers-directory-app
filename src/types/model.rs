@@ -5,12 +5,14 @@ use serde::{
 };
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 enum EloRange {
     Greater2k,
     Greater1k4,
     Greater800,
 }
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 enum Category {
     CastingRanked(EloRange),
     CastingTournaments,
@@ -20,6 +22,7 @@ enum Category {
     LearningResources,
 }
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 enum LanguageShortCode {
     En,
     De,
@@ -31,6 +34,7 @@ enum LanguageShortCode {
     Other(String),
 }
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 enum GameShortCode {
     Aoe1,
     Aoe2,
@@ -43,6 +47,7 @@ enum GameShortCode {
 
 type StreamerUrl = String;
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 enum Platform {
     Twitch(StreamerUrl),
     Youtube(StreamerUrl),
@@ -51,9 +56,11 @@ enum Platform {
     Discord(StreamerUrl),
 }
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 struct Elo(u64);
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
 struct ContentCreatorInfo {
     id: usize,
     name: String,

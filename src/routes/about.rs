@@ -26,26 +26,7 @@ impl Component for About {
     }
 
     fn view(&self) -> Html {
-        html! {
-            <div class="app">
-                <header class="app-header">
-                    <p>
-                        <a
-                            class="app-link"
-                            href="https://github.com/jetli/create-yew-app"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            { "Create Yew App" }
-                        </a>
-                        { ", Set up a modern yew web app by running one command." }
-                    </p>
-                    <p>
-                        { "Edit " } <code>{ "src/components/about.rs" }</code> { " and save to reload." }
-                    </p>
-                </header>
-            </div>
-        }
+        html! {}
     }
 }
 

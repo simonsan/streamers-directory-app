@@ -36,6 +36,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./",
           "packageDependencies": [
             ["babel-types", "npm:6.26.0"],
+            ["bulma", "npm:0.9.3"],
             ["cross-env", "npm:7.0.3"],
             ["parcel-bundler", "npm:1.12.5"],
             ["parcel-plugin-wasm.rs", "virtual:c68e4a0169a34b07fa7e9cca3db26542847e6757e86268a9a4f6c67a1aaa2475661af9588aaeb66c1bec612a56e8326e50ddd39b8885578f71aadd8a00a8bf71#npm:1.3.0"],
@@ -3106,6 +3107,15 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageLocation": "./.yarn/cache/builtin-status-codes-npm-3.0.0-e376b0580b-1119429cf4.zip/node_modules/builtin-status-codes/",
           "packageDependencies": [
             ["builtin-status-codes", "npm:3.0.0"]
+          ],
+          "linkType": "HARD",
+        }]
+      ]],
+      ["bulma", [
+        ["npm:0.9.3", {
+          "packageLocation": "./.yarn/cache/bulma-npm-0.9.3-8aa30837f2-98e1c2794b.zip/node_modules/bulma/",
+          "packageDependencies": [
+            ["bulma", "npm:0.9.3"]
           ],
           "linkType": "HARD",
         }]
@@ -9734,6 +9744,7 @@ function $$SETUP_STATE(hydrateRuntimeState, basePath) {
           "packageDependencies": [
             ["yew-app", "workspace:."],
             ["babel-types", "npm:6.26.0"],
+            ["bulma", "npm:0.9.3"],
             ["cross-env", "npm:7.0.3"],
             ["parcel-bundler", "npm:1.12.5"],
             ["parcel-plugin-wasm.rs", "virtual:c68e4a0169a34b07fa7e9cca3db26542847e6757e86268a9a4f6c67a1aaa2475661af9588aaeb66c1bec612a56e8326e50ddd39b8885578f71aadd8a00a8bf71#npm:1.3.0"],
