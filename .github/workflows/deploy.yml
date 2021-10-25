@@ -11,6 +11,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - name: Rust Cache
+        uses: Swatinem/rust-cache@v1
+
       - uses: actions-rs/toolchain@v1
         with:
           toolchain: stable
@@ -19,9 +22,6 @@ jobs:
       - uses: jetli/trunk-action@v0.1.0
         with:
           version: 'latest'
-
-      - name: Rust Cache
-        uses: Swatinem/rust-cache@v1
 
       - run: trunk build --release --public-url "https://simonsan.github.io/streamers-directory-app/"
 
