@@ -16,10 +16,9 @@ jobs:
           target: wasm32-unknown-unknown
       - uses: jetli/trunk-action@v0.1.0
         with:
-          # Optional version of trunk to install(eg. 'v0.8.1', 'latest')
           version: 'latest'
 
-      - run: trunk build
+      - run: trunk build --release
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
