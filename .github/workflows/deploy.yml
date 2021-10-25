@@ -23,7 +23,7 @@ jobs:
         with:
           version: 'latest'
 
-      - run: trunk build --release --public-url "https://simonsan.github.io/streamers-directory-app/"
+      - run: trunk build --release --public-url "/streamers-directory-app/"
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
