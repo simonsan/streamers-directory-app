@@ -28,7 +28,7 @@ impl Players {
                callback: Callback<Result<Vec<StreamerJson>, Error>>)
                -> FetchTask {
         self.requests
-            .get::<Vec<StreamerJson>>(format!("/main/static/data/streamers.json"),
-                                callback)
+            .get::<Vec<StreamerJson>>(format!("/main/data/streamers.json"),
+                                      callback)
     }
 }

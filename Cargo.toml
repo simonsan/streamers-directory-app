@@ -28,6 +28,16 @@ parking_lot = "0.11.2"
 lazy_static = "1.4.0"
 dotenv_codegen = "0.15.0"
 
+# Requests
+#reqwest = { version = "0.11", features = ["json", "rustls-tls", ] }
+#tokio = { version = "1", features = ["full"] }
+
+# Storage
+# gloo-storage = "0.2.0"
+
+# Timers
+# gloo-timers = "0.2.1"
+
 [dev-dependencies]
 wasm-bindgen-test = "0.3.28"
 

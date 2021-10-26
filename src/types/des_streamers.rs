@@ -3,6 +3,8 @@ use serde::{
     Serialize,
 };
 
+use crate::types::ContentUrl;
+
 pub type GameId = String;
 
 #[derive(Serialize,
@@ -13,6 +15,7 @@ pub type GameId = String;
            Ord,
            Clone,
            Debug)]
+#[serde(rename_all = "camelCase")]
 pub enum GamePlatform {
     Aoe1(Vec<MultiplayerPlatform>),
     Aoe2(Vec<MultiplayerPlatform>),
@@ -30,14 +33,13 @@ pub enum GamePlatform {
            Ord,
            Clone,
            Debug)]
+#[serde(rename_all = "camelCase")]
 pub enum MultiplayerPlatform {
     De(Vec<String>),
     Voobly(Vec<String>),
     GameRanger(Vec<String>),
     ESOC(Vec<String>),
 }
-
-type ContentUrl = String;
 
 #[derive(Serialize,
            Deserialize,
@@ -47,6 +49,7 @@ type ContentUrl = String;
            Ord,
            Clone,
            Debug)]
+#[serde(rename_all = "camelCase")]
 pub enum ContentPlatform {
     Twitch(Vec<ContentUrl>),
     Youtube(Vec<ContentUrl>),
@@ -63,12 +66,12 @@ pub enum ContentPlatform {
            Ord,
            Clone,
            Debug)]
+#[serde(rename_all = "camelCase")]
 pub enum InfoPlatform {
     Liquipedia(ContentUrl),
     AoeElo(i64),
     EsportsErnings(u64),
 }
-
 #[derive(Serialize,
            Deserialize,
            PartialEq,
@@ -77,6 +80,7 @@ pub enum InfoPlatform {
            Ord,
            Clone,
            Debug)]
+#[serde(rename_all = "camelCase")]
 pub struct Player {
     uid: u64,
     /// Player ID for looking up in players.yaml file
