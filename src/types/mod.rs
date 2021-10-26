@@ -4,3 +4,4 @@ pub mod elo;
 pub mod game;
 pub mod language;
 pub mod platform;
+pub mod streamers;
