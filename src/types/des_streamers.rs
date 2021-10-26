@@ -77,7 +77,7 @@ pub enum InfoPlatform {
            Ord,
            Clone,
            Debug)]
-pub struct ContentCreator {
+pub struct Player {
     uid: u64,
     /// Player ID for looking up in players.yaml file
     // player_id: u64,

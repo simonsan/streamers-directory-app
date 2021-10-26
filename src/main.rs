@@ -7,6 +7,7 @@ pub mod components;
 pub mod routes;
 pub mod services;
 pub mod types;
+pub mod error;
 
 use app::App;
 
