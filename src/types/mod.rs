@@ -8,6 +8,7 @@ use serde::{
 use crate::types::{
     categories::ContentCategory,
     content_creator::ContentCreatorInfo,
+    games::ContentGames,
     stream_platforms::ContentPlatformInfo,
 };
 
@@ -28,6 +29,7 @@ pub type GameId = String;
 #[serde(rename_all = "camelCase")]
 pub struct Api {
     content_platform_infos: Vec<ContentPlatformInfo>,
+    content_games: Vec<ContentGames>,
     content_categories: Vec<ContentCategory>,
     content_creators: Vec<ContentCreatorInfo>,
 }
