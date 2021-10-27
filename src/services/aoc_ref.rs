@@ -9,7 +9,7 @@ use yew::{
 use super::Requests;
 use crate::{
     error::Error,
-    types::des_streamers::Player as StreamerJson,
+    types::Api as ApiJson,
 };
 
 /// Serve streamers from converted json
@@ -25,10 +25,9 @@ impl Players {
 
     /// Get all players
     pub fn all(&mut self,
-               callback: Callback<Result<Vec<StreamerJson>, Error>>)
+               callback: Callback<Result<Vec<ApiJson>, Error>>)
                -> FetchTask {
         self.requests
-            .get::<Vec<StreamerJson>>(format!("/main/data/streamers.json"),
-                                      callback)
+            .get::<Vec<ApiJson>>(format!("/main/data/streamers.json"), callback)
     }
 }

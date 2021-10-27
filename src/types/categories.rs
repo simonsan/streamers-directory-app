@@ -1,17 +1,22 @@
-use serde::{
-    Deserialize,
-    Serialize,
-};
+use serde::{Deserialize, Serialize};
 
-use super::elo::EloRange;
+use crate::types::elo::PlayerSkill;
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
+#[derive(Serialize, Deserialize, PartialEq, Eq, PartialOrd, Ord, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
-pub(crate) enum Category {
-    CastingRanked(EloRange),
+pub enum Category {
+    CastingRanked(PlayerSkill),
+    PovContent(PlayerSkill),
     CastingTournaments,
     OrganizingTournaments,
     CommunityGames,
-    PovContent(EloRange),
     LearningResources,
+}
+
+#[derive(Serialize, Deserialize, Clone, Debug)]
+#[serde(rename_all = "camelCase")]
+pub struct ContentCategory {
+    pub id: usize,
+    pub category: Category,
+    pub description: String,
 }

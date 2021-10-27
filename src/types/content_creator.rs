@@ -5,48 +5,58 @@ use serde::{
 
 use crate::types::{
     categories::Category,
-    des_streamers::{
-        GamePlatform,
-        InfoPlatform,
-    },
     elo::PlatformElo,
-    languages::LanguageShortCode,
-    platforms::ContentPlatform,
+    game_platforms::GamePlatform,
+    info_platforms::InfoPlatform,
+    stream_platforms::ContentPlatform,
     ContentUrl,
     ImagePath,
 };
 
-#[derive(Serialize, Deserialize, Clone, Debug)]
+type LanguageShortCode = String;
+type ContentPlatformRepr = ContentPlatform;
+
+#[derive(typed_builder::TypedBuilder,
+           Serialize,
+           Deserialize,
+           PartialEq,
+           Eq,
+           PartialOrd,
+           Ord,
+           Clone,
+           Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct ContentCreatorPlatformInfo {
-    content_platform: ContentPlatform,
+    id: usize,
+    content_platform_id: ContentPlatformRepr,
     creator_url: ContentUrl,
     content_languages: Vec<LanguageShortCode>,
     content_categories: Vec<Category>,
 }
 
-
-#[derive(Serialize, Deserialize, Clone, Debug)]
+#[derive(typed_builder::TypedBuilder,
+           Serialize,
+           Deserialize,
+           PartialEq,
+           Eq,
+           PartialOrd,
+           Ord,
+           Clone,
+           Debug)]
 #[serde(rename_all = "camelCase")]
 pub struct ContentCreatorInfo {
     pub id: usize,
-    pub username: String,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub bio: Option<String>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub image: Option<ImagePath>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub following: Option<bool>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub content_platforms: Option<Vec<ContentCreatorPlatformInfo>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub info_platforms: Option<Vec<InfoPlatform>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub gaming_profiles: Option<Vec<GamePlatform>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
-    pub platform_elos: Option<Vec<PlatformElo>>,
-    #[serde(skip_serializing_if = "Option::is_none")]
     pub aoc_ref_id: Option<u64>,
+    pub name: String,
+    pub country: Option<String>,
+    pub bio: Option<String>,
+    pub image: Option<ImagePath>,
+    #[serde(skip)]
+    pub following: Option<bool>,
+    pub content_platforms: Option<Vec<ContentCreatorPlatformInfo>>,
+    pub info_platforms: Option<Vec<InfoPlatform>>,
+    pub gaming_profiles: Option<Vec<GamePlatform>>,
+    pub platform_elos: Option<Vec<PlatformElo>>,
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug)]

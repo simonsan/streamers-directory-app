@@ -1,11 +1,8 @@
-use serde::{
-    Deserialize,
-    Serialize,
-};
+use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug)]
 #[serde(rename_all = "camelCase")]
-pub(crate) enum LanguageShortCode {
+pub enum LanguageShortCode {
     En,
     De,
     Fr,
